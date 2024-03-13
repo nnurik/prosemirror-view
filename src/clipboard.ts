@@ -34,7 +34,7 @@ export function serializeForClipboard(view: EditorView, slice: Slice) {
       "data-pm-slice", `${openStart} ${openEnd}${wrappers ? ` -${wrappers}` : ""} ${JSON.stringify(context)}`)
 
   let text = view.someProp("clipboardTextSerializer", f => f(slice, view)) ||
-      slice.content.textBetween(0, slice.content.size, "\n\n")
+      slice.content.textBetween(0, slice.content.size, "\r\n")
 
   return {dom: wrap, text}
 }
